@@ -1,0 +1,111 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Styling for the registration form container */
+        .register-container {
+            background-color: #ffe6f0; /* Light pink background */
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2.text-muted {
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn-dark {
+            background-color: #d63384; /* Dark pink button */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-dark:hover {
+            background-color: #bf3375; /* Slightly darker pink */
+        }
+
+        .btn-default {
+            margin-left: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+        }
+
+        .btn-default:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 class="text-muted">Register</h2>
+
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" name="full_name" class="form-control" placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email address" />
+            </div>
+
+            <div class="form-group">
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" name="contact_number" class="form-control" placeholder="Enter your contact number" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" />
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" />
+            </div>
+
+            <div class="form-group">
+                <label for="emergency_contact1">Emergency Contact 1:</label>
+                <input type="text" name="emergency_contact1" class="form-control" placeholder="Enter first emergency contact" />
+            </div>
+
+            <div class="form-group">
+                <label for="emergency_contact2">Emergency Contact 2:</label>
+                <input type="text" name="emergency_contact2" class="form-control" placeholder="Enter second emergency contact" />
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark">Submit</button>
+                <a href="{% url 'login' %}" class="btn btn-default">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

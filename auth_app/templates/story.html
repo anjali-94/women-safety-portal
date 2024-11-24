@@ -1,0 +1,142 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Story{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Story</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7d7; /* Light pink background */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f4f4f4; /* Light gray color */
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+
+        /* Heading styling */
+        .heading {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 2rem;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* Input box styling */
+        .input-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        .input-box textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .input-box textarea:focus {
+            outline: none;
+            border-color: #888;
+        }
+
+        /* Submit button styling */
+        .btn-submit {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #444;
+        }
+
+        /* Stories section */
+        .stories-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .story {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .story:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="{% url 'dashboard' %}">Back</a>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="heading">Anonymous Story</h1>
+
+    <!-- Input box -->
+    <div class="input-box">
+        <form action="{% url 'submit_story' %}" method="post">
+            {% csrf_token %}
+            <textarea name="story_content" maxlength="5000" placeholder="Write your story here (max 5000 words)..."></textarea>
+            <br><br>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Stories Section -->
+    <div class="stories-section">
+        <h2>Shared Stories</h2>
+        {% for story in stories %}
+            <div class="story">
+                <p>{{ story.content }}</p>
+                <p><small>Submitted by: Anonymous</small></p>
+            </div>
+        {% empty %}
+            <p>No stories have been shared yet. Be the first to share yours!</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+{% endblock %}

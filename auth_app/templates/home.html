@@ -1,0 +1,92 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+        /* Centered heading styling */
+        .main-heading {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 4rem; /* Large font size */
+            color: #333;
+            margin-top: 50px;
+        }
+        /* Section box styling */
+        .section-box {
+            background-color: #ffe6f2; /* Light pink color */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px; /* Box width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-box h2 {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .section-box p {
+            text-align: justify;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+
+    <!-- Main heading -->
+    <h1 class="main-heading">For Her</h1>
+
+    <!-- About For Her section -->
+    <div class="section-box">
+        <h2>About For Her</h2>
+        <p>
+            Blah blah blah
+        </p>
+    </div>
+
+    <!-- Memorial Wall/Stories section -->
+    <div class="section-box">
+        <h2>Memorial Wall/Stories</h2>
+        <p>
+            Blah blah blah
+        </p>
+    </div>
+
+</body>
+</html>
+{% endblock %}

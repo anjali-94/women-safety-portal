@@ -1,0 +1,101 @@
+
+
+
+
+
+
+
+{% extends 'layouts/app.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Overall page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7d7; /* Light pink background */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8d7d7; /* Light pink color */
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+
+        /* Dashboard heading styling */
+        .dashboard-heading {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 3rem;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        /* Button styling */
+        .btn-logout {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-logout:hover {
+            background-color: #444;
+        }
+
+        /* Main content box styling */
+        .content-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+    </div>
+
+    <!-- Main dashboard heading -->
+    <h1 class="dashboard-heading">Dashboard: {{ request.user.username }}</h1>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <p>Welcome to your personalized dashboard, {{ request.user.username }}!</p>
+        <p>Here you can manage your activities and access your personal information.</p>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
