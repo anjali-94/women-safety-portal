@@ -85,38 +85,39 @@
 
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
+            {% if error_message %}
+            <div class="alert alert-danger">
+                {{ error_message }}
+            </div>
+            {% endif %}
             <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Email ID:</label>
+                <label for="email">Email ID:</label>
                 <input type="email" 
-                       name="{{ form.email.name }}" 
+                       name="email" 
                        class="form-control" 
-                       value="{{ form.email.value }}" 
-                       placeholder="Enter your registered email" />
-                {% if form.email.errors %}
-                <span class="text-danger">{{ form.email.errors }}</span>
-                {% endif %}
+                       placeholder="Enter your registered email" 
+                       required />
             </div>
-
+        
             <div class="form-group">
-                <label for="{{ form.password.id_for_label }}">Password:</label>
+                <label for="password">Password:</label>
                 <input type="password" 
-                       name="{{ form.password.name }}" 
+                       name="password" 
                        class="form-control" 
-                       placeholder="Enter your password" />
-                {% if form.password.errors %}
-                <span class="text-danger">{{ form.password.errors }}</span>
-                {% endif %}
+                       placeholder="Enter your password" 
+                       required />
             </div>
-
+        
             <div class="forgot-password-link">
                 <a href="{% url 'password_reset' %}">Forgot Password?</a>
             </div>
-
+        
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-dark">Login</button>
                 <a href="{% url 'register' %}" class="btn btn-default">Create a new account</a>
             </div>
         </form>
+        
     </div>
 </body>
 </html>

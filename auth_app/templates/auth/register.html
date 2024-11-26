@@ -62,50 +62,20 @@
 <body>
     <div class="register-container">
         <h2 class="text-muted">Register</h2>
-
-        <form method="POST" action="{% url 'register' %}">
+        <form method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Enter your full name" />
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email ID:</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email address" />
-            </div>
-
-            <div class="form-group">
-                <label for="contact_number">Contact Number:</label>
-                <input type="text" name="contact_number" class="form-control" placeholder="Enter your contact number" />
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" />
-            </div>
-
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" />
-            </div>
-
-            <div class="form-group">
-                <label for="emergency_contact1">Emergency Contact 1:</label>
-                <input type="text" name="emergency_contact1" class="form-control" placeholder="Enter first emergency contact" />
-            </div>
-
-            <div class="form-group">
-                <label for="emergency_contact2">Emergency Contact 2:</label>
-                <input type="text" name="emergency_contact2" class="form-control" placeholder="Enter second emergency contact" />
-            </div>
-
+            {{ form.as_p }}
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
-                <a href="{% url 'login' %}" class="btn btn-default">Already have an account? Login</a>
-            </div>
+            <button type="submit" class="btn btn-dark">Register</button>
+            <p>Already have an account?<a href="{% url 'login' %}" class="btn btn-default"> Login</a></p>
+        </div>
         </form>
+        
     </div>
+
+
+    
+    
 </body>
 </html>
 {% endblock %}
