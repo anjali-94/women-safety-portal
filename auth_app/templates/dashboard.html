@@ -1,4 +1,4 @@
-{% extends 'layouts/app.html' %}
+{% extends 'layouts/base.html' %}
 
 {% block title %}Dashboard{% endblock %}
 
@@ -96,12 +96,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Navigation bar -->
-    <div class="navbar">
-        <a href="{% url 'dashboard' %}">Dashboard</a>
-        <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
-    </div>
 
     <!-- Main dashboard heading -->
     <h1 class="dashboard-heading">Dashboard: {{ request.user.username }}</h1>
