@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Legal Rights and Acts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: 'Poppins', 'sans-serif';
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #db068a;
+            font-size: 36px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(179, 12, 109, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(214, 15, 131, 0.2);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d40685;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .card:hover .card-description {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #000000;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <h1>Legal Rights and Acts in India</h1>
+    </div>
+
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-title">Guardians & Wards Act, 1890</div>
+            <div class="card-description">
+                This law governs the appointment of a guardian for a minor child, ensuring the welfare of the child in terms of custody and care, subject to court approval.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Indian Penal Code, 1860</div>
+            <div class="card-description">
+                The IPC is a comprehensive statute that outlines criminal law in India, detailing offenses and their corresponding punishments, including crimes related to theft, murder, and sexual offenses.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Christian Marriage Act, 1872</div>
+            <div class="card-description">
+                This Act regulates the marriage and divorce procedures of Christians in India, ensuring the legal recognition of Christian marriages and providing guidelines for the dissolution of such marriages.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Indian Evidence Act, 1872</div>
+            <div class="card-description">
+                This Act governs the law of evidence in Indian courts and provides the rules regarding the admissibility of evidence during judicial proceedings.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Married Women's Property Act, 1874</div>
+            <div class="card-description">
+                This Act ensures that a married woman has the right to own and manage her property, free from control by her husband or any third party.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Workmen's Compensation Act, 1923</div>
+            <div class="card-description">
+                This Act provides compensation to workers who are injured or killed in the course of their employment, covering medical costs, lost wages, and more.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Indian Successions Act, 1925</div>
+            <div class="card-description">
+                This Act governs the law of inheritance and succession, specifying how property is distributed among heirs after the death of a person.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Immoral Traffic (Prevention) Act, 1956</div>
+            <div class="card-description">
+                It aims to combat human trafficking, particularly prostitution, by criminalizing the act of keeping brothels and trafficking for sexual exploitation.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Dowry Prohibition Act, 1961</div>
+            <div class="card-description">
+                This Act makes the giving or taking of dowry illegal and punishes those who demand or accept dowry in any form during the marriage process.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Commission of Sati (Prevention) Act, 1987</div>
+            <div class="card-description">
+                The Act criminalizes the practice of sati (widow immolation) and provides strict penalties for those involved in or encouraging such practices.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Cinematograph Act, 1952</div>
+            <div class="card-description">
+                It regulates the certification and censorship of films in India, ensuring that they conform to societal standards and legal guidelines before public screening.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Births, Deaths & Marriages Registration Act, 1886</div>
+            <div class="card-description">
+                This law mandates the registration of births, deaths, and marriages in India, providing official recognition and records for these life events.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Minimum Wages Act, 1948</div>
+            <div class="card-description">
+                This Act ensures that workers are paid a minimum wage for their labor, aiming to prevent exploitation and ensure fair compensation in various industries.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Prevention of Children from Sexual Offences Act, 2012</div>
+            <div class="card-description">
+                It specifically addresses offenses against children, making sexual abuse of minors a punishable crime and setting strict punishments for offenders.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Child Marriage Restraint Act, 1929</div>
+            <div class="card-description">
+                This Act prohibits the marriage of minors in India, establishing the minimum legal age for marriage to prevent child marriages and protect the rights of children.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Muslim Personal Law (Shariat) Application Act, 1937</div>
+            <div class="card-description">
+                This law applies Muslim personal law to Muslims in India in matters of marriage, inheritance, and other personal affairs, according to Islamic principles.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Indecent Representation of Women (Prevention) Act, 1986</div>
+            <div class="card-description">
+                It prohibits the indecent or obscene representation of women in advertisements, publications, or any media form, aiming to protect women’s dignity.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Special Marriage Act, 1954</div>
+            <div class="card-description">
+                It allows individuals of different religions or faiths to marry and provides a legal framework for such marriages, as well as matters related to divorce and inheritance.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Hindu Marriage Act, 1955</div>
+            <div class="card-description">
+                This law governs the marriage, divorce, and adoption practices among Hindus in India, establishing legal norms for the institution of marriage within Hinduism.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Hindu Succession Act, 1956</div>
+            <div class="card-description">
+                It outlines the inheritance and succession rules for Hindus, determining how property is passed down among family members after a person’s death.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Foreign Marriage Act, 1969</div>
+            <div class="card-description">
+                This Act regulates the marriages of Indian citizens abroad, ensuring that marriages conducted in foreign countries are legally valid in India.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Family Courts Act, 1984</div>
+            <div class="card-description">
+                It provides for the establishment of family courts to resolve matrimonial disputes, child custody, and other family-related matters in a speedy and amicable manner.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Maternity Benefit Act, 1961</div>
+            <div class="card-description">
+                This law ensures that women receive paid maternity leave, with provisions for job protection and financial support during pregnancy and after childbirth.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Hindu Adoption & Maintenance Act, 1956</div>
+            <div class="card-description">
+                It governs the adoption and maintenance of children in Hindu families, setting rules on the eligibility of adoptive parents and the welfare of adopted children.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Code of Criminal Procedure, 1973</div>
+            <div class="card-description">
+                This law establishes the procedures for the investigation, trial, and punishment of criminal offenses in India, ensuring the due process of law in criminal cases.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Medical Termination of Pregnancy Act, 1971</div>
+            <div class="card-description">
+                It legalizes abortion in India under specific conditions, providing safe and regulated procedures for terminating pregnancies under certain medical and social conditions.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">National Commission for Women Act, 1990</div>
+            <div class="card-description">
+                This Act establishes the National Commission for Women (NCW) to protect and promote the rights of women, address their issues, and recommend policies for their welfare.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Pre-conception and Pre-natal Diagnostic Techniques (Prohibition of Sex Selection) Act, 1994</div>
+            <div class="card-description">
+                This law prohibits the use of prenatal diagnostic techniques for sex determination to prevent sex-selective abortion and promote gender equality.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Protection of Women from Domestic Violence Act, 2005</div>
+            <div class="card-description">
+                It provides legal protection to women against domestic violence, including physical, emotional, and economic abuse, and ensures safety and support for victims.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Sexual Harassment of Women at Work Place (Prevention, Prohibition & Redressal) Act, 2013</div>
+            <div class="card-description">
+                It mandates workplace policies to prevent and address sexual harassment of women, establishing mechanisms for complaints and redressal.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Indian Divorce Act, 1969</div>
+            <div class="card-description">
+                This Act governs the divorce proceedings for Christians in India, providing grounds for divorce, separation, and maintenance under Christian law.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Equal Remuneration Act, 1976</div>
+            <div class="card-description">
+                It ensures that men and women are paid equally for the same work or work of similar nature, aiming to eliminate gender-based pay disparities.
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Legal Rights & Acts, All rights reserved &copy; 2024</p>
+    </footer>
+
+</body>
+</html>
