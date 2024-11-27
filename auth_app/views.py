@@ -56,6 +56,9 @@ def login_view(request):
 def dashboard_view(request):
     return render(request, 'dashboard.html')
 
+def memorialwall_view(request):
+     return render(request, 'memorialwall.html')
+
 def logout_view(request):
     logout(request)
     return redirect('login')
