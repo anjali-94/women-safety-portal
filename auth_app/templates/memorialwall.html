@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <title>Memorial Wall</title>
   <style>
     /* General Styles */
@@ -18,34 +19,19 @@
 
     /* Header Styles */
     .header {
-      color: #df2893b9;
+      color: #f01281;
       text-align: center;
-      font-size: 1.5rem;
+      padding: 20px 0;
+      font-size: 2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
-    .footer {
-    background: linear-gradient(to right, #8e24aa, #6a1b9a);
-    color: #f9f9fb;
-    text-align: center;
-    padding: 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-    letter-spacing: 0.5px;
-    line-height: 1.8;
-  }
 
-  .footer p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.85);
-  }
+    .header p {
+      font-size: 1.25rem;
+      color: rgba(0, 0, 0, 0.8);
+      margin-top: 10px;
+    }
 
-  .footer p:last-child {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
 
     /* Main Content Styles */
     .main-content {
@@ -86,7 +72,7 @@
     .content h2 {
       margin-top: 0;
       font-size: 1.5rem;
-      color: #6a1b9a;
+      color: #f70f7b;
     }
 
     .content p {
@@ -98,7 +84,7 @@
     /* Load More Button */
     .load-more {
       display: block;
-      background: linear-gradient(to right, #6a1b9a, #8e24aa);
+      background: linear-gradient(to right, #f332b9cb, #f01281d0);
       color: white;
       border: none;
       padding: 10px 20px;
@@ -111,7 +97,7 @@
     }
 
     .load-more:hover {
-      background: linear-gradient(to right, #8e24aa, #6a1b9a);
+      background: linear-gradient(to right, #f332b9, #f01281);
     }
 
     /* Responsive Styles */
@@ -134,17 +120,16 @@
 </head>
 
 <body>
-  <header class="header">
-    <h1>Memorial Wall</h1>
-  </header>
+    <section class="header">
+        <h3>The Memorial Wall honors countless stories of courage, inspiring women around the world.</h3>
+        <p>These stories remind us of the indomitable spirit of individuals who have turned personal tragedies into
+            movements for change. Their legacies inspire us to continue advocating for equality, safety, and justice for
+            all.</p>
+    </section>
   <main class="main-content" id="memorial-wall">
     <!-- Cards will be dynamically loaded -->
   </main>
   <button class="load-more" id="load-more-btn">Load More</button>
-  <footer class="footer">
-    <p>These stories showcase the resilience of individuals who have turned personal tragedies into powerful movements for change. With countless untold stories, their legacies inspire us to persist in advocating for equality, safety, and justice for all.</p>
-    &copy; 2024 Memorial Wall. All Rights Reserved.
-  </footer>
 
   <script>
     const stories = [

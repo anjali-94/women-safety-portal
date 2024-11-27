@@ -86,7 +86,10 @@ def submit_story(request):
         if content:
             Story.objects.create(content=content)
     return redirect('story')
-
+    
+def story_feed(request):
+    stories = Story.objects.all()
+    return render(request, 'story_feed.html', {'stories': stories})
 
 def self_defense(request):
     return render(request, 'self_defense.html')

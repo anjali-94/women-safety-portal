@@ -1,0 +1,176 @@
+<!-- story_feed.html -->
+{% extends 'layouts/app.html' %}
+
+{% block title %}Story Feed{% endblock %}
+
+{% block content %}
+    <h1 class="heading">Story Feed</h1>
+
+    <div class="stories-container">
+        {% for story in stories %}
+            <div class="story-card" data-story-id="{{ story.id }}">
+                <div class="story-content">
+                    <p class="short-content">{{ story.content|slice:":200" }}...</p> <!-- Display first 200 characters -->
+                    <p class="full-content" style="display:none;">{{ story.content }}</p> <!-- Full content, initially hidden -->
+                    <button class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-chevron-down"></i> <!-- Down arrow icon -->
+                    </button>
+                </div>
+                <div class="story-footer">
+                    <!-- Replace Date with a Visual Label or Icon -->
+                    <span class="category-label">{{ story.category }}</span>
+                </div>
+            </div>
+        {% empty %}
+            <p>No stories yet. Be the first to share yours!</p>
+        {% endfor %}
+    </div>
+
+    <style>
+        /* Global Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff4081;
+            margin-bottom: 30px;
+        }
+
+        /* Story Feed Container */
+        .stories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Story Card */
+        .story-card {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Content */
+        .story-content {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .story-footer {
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* New Category Label Style */
+        .category-label {
+            background-color: #ff4081;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Read More Button */
+        .read-more-btn {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .read-more-btn:hover {
+            background-color: #f50057;
+            transform: translateY(-5px);
+        }
+
+        .read-more-btn:focus {
+            outline: none;
+        }
+
+        .read-more-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn.open i {
+            transform: rotate(180deg); /* Rotate icon on expand */
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem;
+            }
+
+            .stories-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .story-card {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <script>
+        // Handle the "Read More" button functionality
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const storyCard = this.closest('.story-card');
+                const fullContent = storyCard.querySelector('.full-content');
+                const shortContent = storyCard.querySelector('.short-content');
+                
+                // Toggle between showing short content and full content
+                if (fullContent.style.display === "none") {
+                    fullContent.style.display = "block";  // Show full content
+                    shortContent.style.display = "none";  // Hide short content
+                    this.textContent = "Read Less";  // Change button text to "Read Less"
+                    this.classList.add('open');  // Add rotation to the icon
+                } else {
+                    fullContent.style.display = "none";  // Hide full content
+                    shortContent.style.display = "block";  // Show short content
+                    this.textContent = "Read More";  // Change button text to "Read More"
+                    this.classList.remove('open');  // Remove rotation from the icon
+                }
+            });
+        });
+    </script>
+    
+{% endblock %}

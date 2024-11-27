@@ -48,7 +48,7 @@
         }
 
         .static-section {
-            background-image: url('static/women.jpg');
+            background-image: url('https://img.freepik.com/premium-photo/group-women-pink-dresses-sit-front-pink-background_1130573-114037.jpg?w=900');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -194,6 +194,7 @@
             <a href="#">Helpline Numbers</a>
             <a href="#">Change Password</a>
             <a href="{% url 'logout' %}">Logout</a> 
+            <a href="{% url 'story_feed' %}" >See All Stories</a>
         </nav>
     </header>
 
@@ -247,7 +248,7 @@
 
     <section class="static-section1">
         <h2>Stories</h2>
-        <a href="{% url 'story' %}"><p>Post your Story Anonymously</p></a>
+        <a href="{% url 'story' %}"><p>Click Here! Post your Story Anonymously</p></a>
     </section>
 
     <div id="myModal" class="modal">
