@@ -13,7 +13,7 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: #f3f4f6;
+      background: #f9f9fb;
       color: #333;
       line-height: 1.6;
     }
@@ -27,18 +27,29 @@
       font-size: 2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    /* Footer Styles */
+    
     .footer {
-      background: linear-gradient(to right, #8e24aa, #6a1b9a);
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 1rem;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+    background: linear-gradient(to right, #8e24aa, #6a1b9a);
+    color: #f9f9fb;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  .footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .footer p:last-child {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
 
     /* Main Content Styles */
     .main-content {
@@ -51,12 +62,17 @@
     .card {
       display: flex;
       align-items: flex-start;
-      background: linear-gradient(to bottom, #e1bee7, #f3e5f5);
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
-      margin-bottom: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
 
     .card img {
@@ -80,34 +96,27 @@
     .content p {
       margin: 10px 0 0;
       font-size: 1rem;
-      color: #444;
+      color: #555;
     }
 
-    .last-card {
-      background-color: #f4f4f9;
-      /* Subtle light gray background */
-      border: 1px solid #dcdce0;
-      /* Light gray border */
-      padding: 30px;
-      margin-top: 80px;
-      margin-bottom: 40px;
-      border-radius: 8px;
+    /* Load More Button */
+    .load-more {
+      display: block;
+      background: linear-gradient(to right, #6a1b9a, #8e24aa);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 20px auto;
+      border-radius: 5px;
       text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* Professional font */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      /* Light shadow for a modern look */
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    .last-content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #444;
-      /* Dark gray text for readability */
-      margin: 0;
-      font-weight: 500;
+    .load-more:hover {
+      background: linear-gradient(to right, #8e24aa, #6a1b9a);
     }
-
 
     /* Responsive Styles */
     @media (max-width: 768px) {
@@ -132,231 +141,153 @@
   <header class="header">
     <h1>Memorial Wall</h1>
   </header>
-  <main class="main-content">
-    <div class="card">
-      <!-- <img src="https://via.placeholder.com/150" alt="Card 1 Image"> -->
-      <div class="content">
-        <h2>1. Nirbhaya Case (India, 2012)</h2>
-        <p>In December 2012, a 23-year-old physiotherapy intern, later named Nirbhaya, was gang-raped and fatally
-          assaulted on a bus in Delhi. The brutality of the crime shocked the nation, sparking mass protests demanding
-          better safety for women. Her case led to significant amendments in India’s anti-rape laws, including the
-          introduction of stricter punishments and fast-track courts for sexual assault cases. Nirbhaya's story has
-          become a symbol of resilience and a rallying cry for women’s safety, inspiring countless survivors to speak up
-          and demand justice.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>2. Malala Yousafzai’s Fight for Education (Pakistan, 2012)</h2>
-        <p>At just 15, Malala was shot in the head by the Taliban for advocating girls’ education in Pakistan.
-          Miraculously surviving the attack, she became a global advocate for education and women’s rights. Her courage
-          earned her the Nobel Peace Prize in 2014, making her the youngest laureate. Malala’s journey inspires young
-          girls worldwide to pursue education despite challenges and to believe in the power of knowledge as a tool for
-          empowerment.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>3. Tarana Burke and the #MeToo Movement (USA, 2006)</h2>
-        <p>Tarana Burke founded the #MeToo movement to help survivors of sexual violence, especially from marginalized
-          communities, find support and healing. In 2017, the movement gained global momentum, empowering millions of
-          women to share their experiences and hold perpetrators accountable. Tarana’s work highlights the importance of
-          solidarity and has inspired institutional changes to prevent and address harassment.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>4. Asha Devi’s Advocacy (India)</h2>
-        <p>After her daughter, Nirbhaya, was brutally assaulted and killed, Asha Devi became a prominent voice against
-          gender violence. Despite her immense grief, she channeled her pain into activism, fighting for faster trials
-          and better laws to protect women. Her tireless efforts have inspired many parents and survivors to demand
-          accountability and justice.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>5. Laxmi Agarwal and Acid Attack Survivors (India)</h2>
-        <p>At 15, Laxmi was attacked with acid by a man whose romantic advances she rejected. Instead of succumbing to
-          despair, she became a prominent campaigner against acid attacks, filing a Public Interest Litigation (PIL)
-          that led to stricter regulations on the sale of acid in India. Her advocacy inspired many survivors to seek
-          justice and rebuild their lives. Laxmi's life story was also depicted in the Bollywood movie Chhapaak.
-
-        </p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>6. Anita Hill and Workplace Harassment (USA, 1991)</h2>
-        <p>Anita Hill testified before the U.S. Senate, accusing Supreme Court nominee Clarence Thomas of sexual
-          harassment. Despite facing severe backlash, her testimony brought workplace harassment into public discourse
-          and led to policy changes globally. Anita’s bravery encourages women to challenge abuse of power and fight for
-          safer work environments.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>7. The Gulabi Gang (India)</h2>
-        <p>Founded by Sampat Pal, the Gulabi Gang is a group of women in pink saris who take a stand against domestic
-          violence, child marriage, and corruption in rural India. They physically confront abusers and provide a voice
-          for marginalized women. Their grassroots activism has inspired women to take collective action for their
-          rights and safety.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>8. Mahsa Amini and Iran’s Protests (2022)</h2>
-        <p>Mahsa Amini was detained and beaten by Iran’s morality police for not wearing her hijab "properly." Her death
-          sparked massive protests led by women, who burned hijabs and cut their hair as acts of defiance. These
-          protests have become a symbol of women’s fight against oppression, inspiring movements for freedom worldwide.
-        </p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>9. Shakti Mills Case (India, 2013)</h2>
-        <p>A photojournalist was gang-raped at an abandoned mill in Mumbai. The crime outraged the nation, leading to
-          the first death penalties under India’s amended anti-rape laws. The case reinforced the need for safer public
-          spaces for women and inspired stronger public demand for justice in sexual assault cases.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>10. Amanda Todd and Cyber Harassment (Canada, 2012)</h2>
-        <p>Amanda Todd, a teenager, faced relentless cyberbullying and blackmail over an explicit image shared online.
-          Tragically, she took her own life, but her story led to reforms in cyberbullying laws in Canada. Amanda’s case
-          highlights the importance of digital safety and inspires efforts to combat online harassment.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>11. Bhanwari Devi (India, 1992)</h2>
-        <p>A social worker in Rajasthan, Bhanwari was gang-raped for trying to stop a child marriage. Her case led to
-          the landmark Vishaka Guidelines, India’s first workplace harassment policies. Despite facing immense societal
-          pressure, Bhanwari’s courage laid the groundwork for legal protections for women.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>12. Jessica Lal Murder Case (India, 1999)</h2>
-        <p>Jessica Lal was shot dead for refusing to serve alcohol at a high-profile party. Initially, her killer was
-          acquitted due to his political connections, but public outrage forced a retrial and conviction. The case
-          inspired campaigns for judicial accountability and justice for victims of gender-based violence.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>13. Rehtaeh Parsons (Canada, 2013)</h2>
-        <p>Rehtaeh was sexually assaulted by a group of boys, who later shared explicit images online. She endured
-          cyberbullying and eventually took her own life. Her story prompted reforms in Canada’s laws against cyber
-          harassment and sexual violence, inspiring global awareness about the impact of digital abuse.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>14. Phoolan Devi – The Bandit Queen (India)</h2>
-        <p>A survivor of caste-based violence and gang rape, Phoolan Devi took justice into her own hands and later
-          entered politics to advocate for marginalized communities. Her transformation from victim to leader inspires
-          women to fight systemic oppression and reclaim their power.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>15. Jyoti Dhawale (India)</h2>
-        <p>An HIV-positive activist, Jyoti has worked to break the stigma around HIV/AIDS and educate people about safe
-          sexual practices. Her advocacy for healthcare rights empowers women to prioritize their well-being and live
-          without fear of discrimination.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>16. Rosa Parks and Civil Rights (USA, 1955)</h2>
-        <p>By refusing to give up her bus seat to a white passenger, Rosa Parks ignited the Civil Rights Movement in the
-          U.S. Her quiet defiance is a timeless reminder of how individual courage can spark systemic change, inspiring
-          women to stand against injustice.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>17. Martha Karua (Kenya)</h2>
-        <p>Martha Karua, often called Kenya’s "Iron Lady," has been a fierce advocate for women’s rights and safety in
-          politics. Her persistence in a male-dominated field inspires women to break barriers and demand equitable
-          representation.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>18. Marlene Esparza and Femicide Awareness (Mexico)</h2>
-        <p>Marlene’s brutal murder became a rallying cry against femicide in Mexico, leading to campaigns like Ni Una
-          Menos. Her case highlights the urgent need to address gender-based violence and inspires global solidarity for
-          women’s safety.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>19. Susan Kuhnhausen (USA)</h2>
-        <p>In 2006, Susan, a nurse in Oregon, was attacked by a hitman hired by her estranged husband. Displaying
-          remarkable bravery, she fought back and killed the attacker with her bare hands, ensuring her safety. Her
-          story is a powerful example of physical and mental strength.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>20. Najat Vallaud-Belkacem (Morocco/France)</h2>
-        <p>Born in Morocco and raised in France, Najat overcame significant challenges, including discrimination and
-          cultural expectations. She rose to become France’s Minister of Women’s Rights and later Minister of Education,
-          championing gender equality and safety for women.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>21. Mukhtar Mai (Pakistan)</h2>
-        <p>Mukhtar Mai was gang-raped on the orders of a tribal council as punishment for her brother’s alleged
-          misconduct. Instead of remaining silent, she took her case to court and became an activist for women's rights.
-          Her courage challenged Pakistan’s deeply rooted patriarchal norms.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>22. Artemisia Gentileschi (Italy)</h2>
-        <p>A renowned Baroque artist, Artemisia was sexually assaulted by her tutor. She pursued a public trial against
-          him, an incredibly rare act for women in the 17th century. Her resilience shines through in her powerful
-          artwork, often depicting women fighting back against oppression.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>23. Mary Kom (India)</h2>
-        <p>Mary Kom, a celebrated boxer, overcame societal pressures and gender stereotypes to become a six-time world
-          champion. In a male-dominated sport, she fiercely protected her dreams and inspired countless women to pursue
-          their passions.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>24. Nadia Murad (Iraq)</h2>
-        <p>A Yazidi survivor of ISIS captivity, Nadia escaped sexual slavery and became a global advocate for victims of
-          trafficking and genocide. Her bravery earned her the Nobel Peace Prize and raised awareness about atrocities
-          against women in war.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <h2>25. Sonali Mukherjee (India)</h2>
-        <p>Sonali was a 17-year-old student when three men poured acid on her after she resisted their harassment. The
-          attack left her blind and disfigured. Despite facing immense challenges, she fought a decade-long legal battle
-          and became an advocate for acid attack survivors, demanding justice and policy reforms.</p>
-      </div>
-    </div>
-    <div class="last-card">
-      <div class="last-content">
-        <p>These stories showcase the resilience of individuals who have turned personal tragedies into powerful movements for change. With countless untold stories, their legacies inspire us to persist in advocating for equality, safety, and justice for all.</p>
-      </div>
-    </div>
-
+  <main class="main-content" id="memorial-wall">
+    <!-- Cards will be dynamically loaded -->
   </main>
+  <button class="load-more" id="load-more-btn">Load More</button>
   <footer class="footer">
-    <p>&copy; 2024 Memorial Wall</p>
+    <p>These stories showcase the resilience of individuals who have turned personal tragedies into powerful movements for change. With countless untold stories, their legacies inspire us to persist in advocating for equality, safety, and justice for all.</p>
+    &copy; 2024 Memorial Wall. All Rights Reserved.
   </footer>
+
+  <script>
+    const stories = [
+      {title: "Nirbhaya Case (India, 2012)", description: `In December 2012, a 23-year-old physiotherapy intern, later named Nirbhaya, was gang-raped and fatally assaulted on a bus in Delhi. The brutality of the crime shocked the nation, sparking mass protests demanding better safety for women. Her case led to significant amendments in India’s anti-rape laws, including the introduction of stricter punishments and fast-track courts for sexual assault cases. Nirbhaya's story has become a symbol of resilience and a rallying cry for women’s safety, inspiring countless survivors to speak
+      up and demand justice.`} ,
+{ title: "Malala Yousafzai’s Fight for Education (Pakistan, 2012)"
+, description: `At just 15, Malala was shot in the head by the Taliban for advocating girls’ education in Pakistan.
+Miraculously surviving the attack, she became a global advocate for education and women’s rights. Her courage
+earned her the Nobel Peace Prize in 2014, making her the youngest laureate. Malala’s journey inspires young
+girls worldwide to pursue education despite challenges and to believe in the power of knowledge as a tool for
+empowerment. ` },
+{ title: "Tarana Burke and the #MeToo Movement (USA, 2006)"
+, description: `Tarana Burke founded the #MeToo movement to help survivors of sexual violence, especially from
+marginalized communities, find support and healing. In 2017, the movement gained global momentum, empowering millions of
+women to share their experiences and hold perpetrators accountable. Tarana’s work highlights the importance of
+solidarity and has inspired institutional changes to prevent and address harassment. ` },
+{ title: "Asha Devi’s Advocacy (India)"
+, description: `After her daughter, Nirbhaya, was brutally assaulted and killed, Asha Devi became a prominent voice
+against gender violence. Despite her immense grief, she channeled her pain into activism, fighting for faster trials
+and better laws to protect women. Her tireless efforts have inspired many parents and survivors to demand
+accountability and justice. ` },
+{ title: "Laxmi Agarwal and Acid Attack Survivors (India)"
+, description: `At 15, Laxmi was attacked with acid by a man whose romantic advances she rejected. Instead of succumbing
+to despair, she became a prominent campaigner against acid attacks, filing a Public Interest Litigation (PIL)
+that led to stricter regulations on the sale of acid in India. Her advocacy inspired many survivors to seek
+justice and rebuild their lives. Laxmi's life story was also depicted in the Bollywood movie Chhapaak.
+` },
+{ title: "Anita Hill and Workplace Harassment (USA, 1991)"
+, description: `Anita Hill testified before the U.S. Senate, accusing Supreme Court nominee Clarence Thomas of sexual
+harassment. Despite facing severe backlash, her testimony brought workplace harassment into public discourse
+and led to policy changes globally. Anita’s bravery encourages women to challenge abuse of power and fight for
+safer work environments. ` },
+{ title: "The Gulabi Gang (India)"
+, description: `Founded by Sampat Pal, the Gulabi Gang is a group of women in pink saris who take a stand against
+domestic violence, child marriage, and corruption in rural India. They physically confront abusers and provide a voice
+for marginalized women. Their grassroots activism has inspired women to take collective action for their
+rights and safety. ` },
+{ title: "Mahsa Amini and Iran’s Protests (2022)"
+, description: `Mahsa Amini was detained and beaten by Iran’s morality police for not wearing her hijab "properly." Her
+death sparked massive protests led by women, who burned hijabs and cut their hair as acts of defiance. These
+protests have become a symbol of women’s fight against oppression, inspiring movements for freedom worldwide.
+` },
+{ title: "Shakti Mills Case (India, 2013)"
+, description: `A photojournalist was gang-raped at an abandoned mill in Mumbai. The crime outraged the nation, leading
+to the first death penalties under India’s amended anti-rape laws. The case reinforced the need for safer public
+spaces for women and inspired stronger public demand for justice in sexual assault cases. ` },
+{ title: " Amanda Todd and Cyber Harassment (Canada, 2012)"
+, description: `Amanda Todd, a teenager, faced relentless cyberbullying and blackmail over an explicit image shared
+online. Tragically, she took her own life, but her story led to reforms in cyberbullying laws in Canada. Amanda’s case
+highlights the importance of digital safety and inspires efforts to combat online harassment. ` },
+{ title: "Bhanwari Devi (India, 1992)"
+, description: `A social worker in Rajasthan, Bhanwari was gang-raped for trying to stop a child marriage. Her case led
+to the landmark Vishaka Guidelines, India’s first workplace harassment policies. Despite facing immense societal
+pressure, Bhanwari’s courage laid the groundwork for legal protections for women. ` },
+{ title: "Jessica Lal Murder Case (India, 1999)"
+, description: `Jessica Lal was shot dead for refusing to serve alcohol at a high-profile party. Initially, her killer
+was acquitted due to his political connections, but public outrage forced a retrial and conviction. The case
+inspired campaigns for judicial accountability and justice for victims of gender-based violence. ` },
+{ title: "Rehtaeh Parsons (Canada, 2013)"
+, description: `Rehtaeh was sexually assaulted by a group of boys, who later shared explicit images online. She endured
+cyberbullying and eventually took her own life. Her story prompted reforms in Canada’s laws against cyber
+harassment and sexual violence, inspiring global awareness about the impact of digital abuse. ` },
+{ title: "Phoolan Devi – The Bandit Queen (India)"
+, description: `A survivor of caste-based violence and gang rape, Phoolan Devi took justice into her own hands and later
+entered politics to advocate for marginalized communities. Her transformation from victim to leader inspires
+women to fight systemic oppression and reclaim their power. ` },
+{ title: "Jyoti Dhawale (India)"
+, description: `An HIV-positive activist, Jyoti has worked to break the stigma around HIV/AIDS and educate people about
+safe sexual practices. Her advocacy for healthcare rights empowers women to prioritize their well-being and live
+without fear of discrimination. ` },
+{ title: "Rosa Parks and Civil Rights (USA, 1955)"
+, description: `By refusing to give up her bus seat to a white passenger, Rosa Parks ignited the Civil Rights Movement
+in the U.S. Her quiet defiance is a timeless reminder of how individual courage can spark systemic change, inspiring
+women to stand against injustice. ` },
+{ title: "Martha Karua (Kenya)"
+, description: `Martha Karua, often called Kenya’s "Iron Lady," has been a fierce advocate for women’s rights and safety
+in politics. Her persistence in a male-dominated field inspires women to break barriers and demand equitable
+representation. ` },
+{ title: "Marlene Esparza and Femicide Awareness (Mexico)"
+, description: `Marlene’s brutal murder became a rallying cry against femicide in Mexico, leading to campaigns like Ni
+Una Menos. Her case highlights the urgent need to address gender-based violence and inspires global solidarity for
+women’s safety. ` },
+{ title: "Susan Kuhnhausen (USA)"
+, description: `In 2006, Susan, a nurse in Oregon, was attacked by a hitman hired by her estranged husband. Displaying
+remarkable bravery, she fought back and killed the attacker with her bare hands, ensuring her safety. Her story is a powerful example of physical and mental strength. ` },
+{ title: "Najat Vallaud-Belkacem (Morocco/France)"
+, description: `Born in Morocco and raised in France, Najat overcame significant challenges, including discrimination
+and cultural expectations. She rose to become France’s Minister of Women’s Rights and later Minister of Education,
+championing gender equality and safety for women. ` },
+{ title: "Mukhtar Mai (Pakistan)"
+, description: `Mukhtar Mai was gang-raped on the orders of a tribal council as punishment for her brother’s alleged
+misconduct. Instead of remaining silent, she took her case to court and became an activist for women's rights.
+Her courage challenged Pakistan’s deeply rooted patriarchal norms. ` },
+{ title: "Artemisia Gentileschi (Italy)"
+, description: `A renowned Baroque artist, Artemisia was sexually assaulted by her tutor. She pursued a public trial
+against him, an incredibly rare act for women in the 17th century. Her resilience shines through in her powerful
+artwork, often depicting women fighting back against oppression. ` },
+{ title: "Mary Kom (India)"
+, description: `Mary Kom, a celebrated boxer, overcame societal pressures and gender stereotypes to become a six-time
+world champion. In a male-dominated sport, she fiercely protected her dreams and inspired countless women to pursue
+their passions. ` },
+{ title: "Nadia Murad (Iraq)"
+, description: `A Yazidi survivor of ISIS captivity, Nadia escaped sexual slavery and became a global advocate for
+victims of trafficking and genocide. Her bravery earned her the Nobel Peace Prize and raised awareness about atrocities
+against women in war. ` },
+{ title: "Sonali Mukherjee (India)"
+, description: `Sonali was a 17-year-old student when three men poured acid on her after she resisted their harassment.
+The attack left her blind and disfigured. Despite facing immense challenges, she fought a decade-long legal battle
+and became an advocate for acid attack survivors, demanding justice and policy reforms. ` },
+];
+
+    const memorialWall = document.getElementById("memorial-wall");
+    const loadMoreBtn = document.getElementById("load-more-btn");
+    let storiesLoaded = 0;
+
+    function loadStories() {
+      const storiesToShow = stories.slice(storiesLoaded, storiesLoaded + 6);
+      storiesToShow.forEach(story => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+          <div class="content">
+            <h2>${story.title}</h2>
+            <p>${story.description}</p>
+          </div>
+        `;
+        memorialWall.appendChild(card);
+      });
+      storiesLoaded += storiesToShow.length;
+      if (storiesLoaded >= stories.length) {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+
+    loadMoreBtn.addEventListener("click", loadStories);
+
+    // Initial Load
+    loadStories();
+  </script>
 </body>
 
 </html>
