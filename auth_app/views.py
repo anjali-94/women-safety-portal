@@ -43,7 +43,7 @@ def login_view(request):
                 # Create a session for the user
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email  # Optional: Store more session data if needed
-                return render(request, 'dashboard.html')
+                return redirect('dashboard')
             else:
                 error_message = "Invalid email or password."
         except UserRegistration.DoesNotExist:
@@ -54,7 +54,7 @@ def login_view(request):
 
 @auth
 def dashboard_view(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'Functions.html')
 
 def memorialwall_view(request):
      return render(request, 'memorialwall.html')

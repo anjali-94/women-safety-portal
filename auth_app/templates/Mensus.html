@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menstrual Cycle Tracker - नाri</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-style: 'Poppins', sans-serif;
+        }
+
+
+        h1, h2 {
+            color: #b6065e;
+        }
+
+        button {
+            background-color: #e0465d;
+            color: #000000;
+        }
+
+        button:hover {
+            background-color: #F9C0AF;
+        }
+
+        .card {
+            background-color: #dd43a2;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="flex justify-center items-center">
+            <h1 class="title-font text-5xl font-bold">Hassle-Free Period</h1>
+        </div>
+
+        <div class="flex border-2 border-gray-200 border-opacity-60 rounded-lg m-10">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold py-4">Your guide to hassle-free periods</h1>
+                <h2 class="text-xl font-bold">Menstural cycle : </h2>
+                <ul class="list-disc p-4">
+                    <li><h3>Menstural phase(day 1-5) : </h3>
+                    <p>
+                        This phase, which typically lasts from day one to day five, is the time when the lining of your uterus sheds through your vagina if pregnancy hasn’t occurred. Most people bleed for three to five days, but a period lasting only three days to as many as seven days is usually not a cause for worry.
+                    </p></li>
+
+                    <li><h3>Follicular phase (days 1-13) -</h3>
+                        <p>
+                            This phase typically takes place from days six to 14. During this time, the level of the hormone estrogen rises, which causes the lining of your uterus (the endometrium) to grow and thicken. In addition, another hormone — follicle-stimulating hormone (FSH) — causes follicles in your ovaries to grow. During days 10 to 14, one of the developing follicles will form a fully mature egg (ovum).
+                        </p></li>
+
+                        <li><h3>Ovulation phase (day 14) - </h3>
+                            <p>
+                                This phase occurs roughly at about day 14 in a 28-day menstrual cycle. A sudden increase in another hormone — luteinizing hormone (LH) — causes your ovary to release its egg. This event is ovulation.
+                            </p></li>
+
+                            <li><h3>Luteal phase (day 15-28) -</h3>
+                                <p>
+                                    This phase lasts from about day 15 to day 28. Your egg leaves your ovary and begins to travel through your fallopian tubes to your uterus. The level of the hormone progesterone rises to help prepare your uterine lining for pregnancy. If the egg becomes fertilized by sperm and attaches itself to your uterine wall (implantation), you become pregnant. If pregnancy doesn’t occur, estrogen and progesterone levels drop and the thick lining of your uterus sheds during your period.
+                                </p></li>
+                </ul>
+
+                <h2 class="text-xl font-bold py-4">Choosing your products</h2>
+
+                <ul class="list-disc p-4">
+                    <li>Menstrual cups</li>
+                    <li>Sanitary napkins</li>
+                    <li>Tampons</li>
+                    <br>
+                    <p>According to Harvard Health more than 3000 million women have their periods synchronously at any moment. But the diversity of choice varies.</p>
+                    <br>
+                    <p>The choice of women depends on various factors:</p>
+                    <ul class="list-disc p-4">
+                        <li>Comfort</li>
+                    <li>Environmental impact</li>
+                    <li>And Ease</li>
+                    </ul>
+                </ul>
+
+                <h2 class="text-xl font-bold">What is considered an irregular period?</h2>
+                <ul class="list-disc p-4">
+                    <li>Irregular menstruation describes anything that’s not a normal menstrual period. Some examples of an irregular period are:
+                        Periods that occur less than 21 days or more than 35 days apart.</li>
+                    <li>Not having a period for three months (or 90 days).</li>
+                    <li>Menstrual flow that’s much heavier or lighter than usual.Period bleeding that lasts longer than seven days.</li>
+                    <li>Periods that are accompanied by severe pain, cramping, nausea, or vomiting.</li>
+                    <li>Bleeding or spotting that happens between periods.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-md mx-auto bg-pink-500 p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-semibold mb-4">Menstrual Cycle Tracker</h1>
+        <form id="cycle-tracker-form">
+            <div class="mb-4">
+                <label for="start-date" class="block text-black-700">Start Date:</label>
+                <input type="date" id="start-date" name="start-date" class="w-full rounded border px-3 py-2">
+            </div>
+            <div class="mb-4">
+                <label for="cycle-length" class="block text-black-700">How long did it last? (in days):</label>
+                <input type="number" id="cycle-length" name="cycle-length" class="w-full rounded border px-3 py-2">
+            </div>
+            <div class="mb-4">
+                <label for="usual-cycle-length" class="block text-black-700">Usual Cycle Length (in days):</label>
+                <input type="number" id="usual-cycle-length" name="usual-cycle-length" class="w-full rounded border px-3 py-2">
+            </div>
+            <button type="submit" class="bg-pink-600 text-black rounded px-4 py-2 hover:bg-blue-600">Track Cycle</button>
+        </form>
+    </div>
+
+    <div id="cycle-details" class="mt-8 hidden text-black-700">
+        <h2 class="text-xl font-semibold mb-2">Cycle Details</h2>
+        <p><strong>Menstrual Phase:</strong> <span id="menstrual-phase"></span></p>
+        <p><strong>Details:</strong></p>
+        <ul id="phase-details" class="list-disc ml-6"></ul>
+        <p><strong>Do's and Don'ts:</strong></p>
+        <ul id="do-and-donts" class="list-disc ml-6"></ul>
+    </div>
+
+    <div class="mt-8 flex space-x-4 hidden" id="cycle-stages">
+        <div class="bg-pink-300 p-4 rounded-lg flex-1">
+            <p><strong>Previous Mensus Start Date:</strong> <span id="previous-start-date"></span></p>
+        </div>
+        <div class="bg-pink-400 p-4 rounded-lg flex-1">
+            <p><strong>Expected Mensus Start Date:</strong> <span id="upcoming-start-date"></span></p>
+            <p class="text-red-600" id="late-message">Your period is <span id="days-late">0</span> days late.</p>
+        </div>
+        <div class="bg-pink-500 p-4 rounded-lg flex-1">
+            <h3 class="text-lg font-semibold mb-2">Previous Stage</h3>
+            <p><strong>Phase:</strong> <span id="previous-stage"></span></p>
+        </div>
+        
+        <div class="bg-pink-600 p-4 rounded-lg flex-1">
+            <h3 class="text-lg font-semibold mb-2">Upcoming Stage</h3>
+            <p><strong>Phase:</strong> <span id="upcoming-stage"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('cycle-tracker-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const startDate = new Date(document.getElementById('start-date').value);
+            const cycleLength = parseInt(document.getElementById('cycle-length').value);
+            const usualCycleLength = parseInt(document.getElementById('usual-cycle-length').value);
+            
+            const currentDate = new Date();
+            const daysPassed = Math.ceil((currentDate - startDate) / (1000 * 60 * 60 * 24));
+            const dayInCycle = daysPassed % cycleLength;
+            const upcomingStartDate = new Date(startDate);
+            upcomingStartDate.setDate(startDate.getDate() + usualCycleLength);
+            
+            let menstrualPhase, phaseDetails, doAndDonts, previousStage, upcomingStage, daysLate;
+            
+            if (dayInCycle < 5) {
+                menstrualPhase = "Menstruation";
+                phaseDetails = [
+                    "You are in your menstrual phase.",
+                    "Expect bleeding and discomfort.",
+                ];
+                doAndDonts = [
+                    "Do: Rest, hydrate, and use pain relief if needed.",
+                    "Don't: Overexert yourself or skip self-care.",
+                ];
+                previousStage = "Luteal Phase";
+                upcomingStage = "Follicular Phase";
+            } else if (dayInCycle < 15) {
+                menstrualPhase = "Follicular Phase";
+                phaseDetails = [
+                    "You are in your follicular phase.",
+                    "Hormone levels are rising.",
+                ];
+                doAndDonts = [
+                    "Do: Exercise, eat a balanced diet.",
+                    "Don't: Stress and unhealthy habits.",
+                ];
+                previousStage = "Menstruation";
+                upcomingStage = "Ovulation Phase";
+            } else if (dayInCycle < 23) {
+                menstrualPhase = "Ovulation Phase";
+                phaseDetails = [
+                    "You are in your ovulation phase.",
+                    "Your fertile window is open.",
+                ];
+                doAndDonts = [
+                    "Do: Have safe sex if desired.",
+                    "Don't: Skip protection if not ready for pregnancy.",
+                ];
+                previousStage = "Follicular Phase";
+                upcomingStage = "Luteal Phase";
+            } else {
+                menstrualPhase = "Luteal Phase";
+                phaseDetails = [
+                    "You are in your luteal phase.",
+                    "Hormone levels remain high.",
+                ];
+                doAndDonts = [
+                    "Do: Manage PMS symptoms, relax.",
+                    "Don't: Overindulge in caffeine or stress.",
+                ];
+                previousStage = "Ovulation Phase";
+                upcomingStage = "Menstruation";
+            }
+            
+            const phaseDetailsList = document.getElementById('phase-details');
+            phaseDetailsList.innerHTML = ""; // Clear previous details
+            
+            for (const detail of phaseDetails) {
+                const li = document.createElement('li');
+                li.innerHTML = detail;
+                phaseDetailsList.appendChild(li);
+            }
+            
+            document.getElementById('menstrual-phase').textContent = menstrualPhase;
+            
+            const doAndDontsList = document.getElementById('do-and-donts');
+            doAndDontsList.innerHTML = ""; // Clear previous do's and don'ts
+            
+            for (const item of doAndDonts) {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                doAndDontsList.appendChild(li);
+            }
+
+            document.getElementById('previous-stage').textContent = previousStage;
+            document.getElementById('upcoming-stage').textContent = upcomingStage;
+            document.getElementById('upcoming-start-date').textContent = upcomingStartDate.toDateString();
+            const previousStartDate = new Date(startDate);
+            previousStartDate.setDate(startDate.getDate() - usualCycleLength);
+            document.getElementById('previous-start-date').textContent = previousStartDate.toDateString();
+            
+            
+            // Calculate days late and display the message
+            if (currentDate > upcomingStartDate) {
+                daysLate = Math.ceil((currentDate - upcomingStartDate) / (1000 * 60 * 60 * 24));
+                document.getElementById('days-late').textContent = daysLate;
+                document.getElementById('late-message').classList.remove('hidden');
+            } else {
+                document.getElementById('late-message').classList.add('hidden');
+            }
+            
+            document.getElementById('cycle-details').classList.remove('hidden');
+            document.getElementById('cycle-stages').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

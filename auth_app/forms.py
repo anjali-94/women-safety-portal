@@ -3,14 +3,39 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import UserRegistration
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.views import LoginView
+
+
 
 class CustomLoginForm(AuthenticationForm):
     username = None  # Remove the default username field
+    
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your email'
+        }),
         label="Email",
         required=True
     )
+    
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your password'
+        }),
+        label="Password",
+        required=True
+    )
+
+
+class CustomLoginView(LoginView):
+    form_class = CustomLoginForm
+    template_name = 'login.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('dashboard')  # Redirect to the dashboard after login
 
 
 class UserRegistrationForm(forms.ModelForm):
