@@ -9,6 +9,8 @@ from django.contrib.auth.views import LoginView
 from .forms import CustomLoginForm
 from datetime import datetime
 from django.contrib.auth.hashers import check_password
+from django.contrib import messages
+from .forms import ComplaintForm
 
 # Create your views here.
 def home_view(request):
@@ -58,6 +60,18 @@ def dashboard_view(request):
 
 def memorialwall_view(request):
      return render(request, 'memorialwall.html')
+
+def submit_complaint(request):
+    if request.method == "POST":
+        form = ComplaintForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your complaint has been submitted successfully.")
+            return redirect('complaint')
+    else:
+        form = ComplaintForm()
+    
+    return render(request, 'complaint_form.html', {'form': form})
 
 def logout_view(request):
     logout(request)

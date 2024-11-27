@@ -2,9 +2,10 @@ from django.urls import path #type:ignore
 from . import views
 from django.contrib.auth import views as auth_views
 from .views import CustomLoginView
+from .views import submit_complaint
 
 urlpatterns=[
-    path('home/', views.home_view, name='home'),
+    path('', views.home_view, name='home'),
     path('register/', views.register_view,name='register'),
     path('login/', views.login_view,name='login'),
     path('dashboard/', views.dashboard_view,name='dashboard'),
@@ -17,5 +18,6 @@ urlpatterns=[
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('memorialwall/', views.memorialwall_view, name='memorialwall'),
+    path('complaint/', views.submit_complaint, name='complaint'),
    
 ]

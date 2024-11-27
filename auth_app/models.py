@@ -7,7 +7,7 @@ class Story(models.Model):
 
     def __str__(self):
         return f"Story {self.id}"
-
+        
 
 # Custom User Registration Model
 class UserRegistration(models.Model):
@@ -23,4 +23,25 @@ class UserRegistration(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Complaint(models.Model):
+    INCIDENT_TYPES = [
+        ('harassment', 'Harassment'),
+        ('domestic_violence', 'Domestic Violence'),
+        ('workplace_discrimination', 'Workplace Discrimination'),
+        ('other', 'Other'),
+    ]
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15, null=True, blank=True)
+    location = models.CharField(max_length=255, help_text="City or Area")
+    incident_type = models.CharField(max_length=50, choices=INCIDENT_TYPES, default='other')
+    incident_date = models.DateField(help_text="Date of Incident")
+    complaint = models.TextField(help_text="Describe the incident in detail")
+    date_submitted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.incident_type} on {self.incident_date}"
 

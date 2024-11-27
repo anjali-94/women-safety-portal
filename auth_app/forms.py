@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import UserRegistration
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
+from .models import Complaint
 
 class CustomLoginForm(AuthenticationForm):
     username = None  # Remove the default username field
@@ -39,3 +40,12 @@ class UserRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class ComplaintForm(forms.ModelForm):
+    class Meta:
+        model = Complaint
+        fields = ['name', 'email', 'phone', 'location', 'incident_type', 'incident_date', 'complaint']
+        widgets = {
+            'incident_date': forms.DateInput(attrs={'type': 'date'}),
+            'complaint': forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        }
