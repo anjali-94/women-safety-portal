@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gynecologist Finder</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQDm-jvpXkwWZjGi0fY6vDqznYIXOcMjs&libraries=places&v=3.30"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: rgb(226, 86, 110);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #f352b5;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff50b6;
+      color: #000000;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f15e74;
+    }
+
+    .card {
+      background-color: #e03e8ade;
+      color: #000000;
+      border: 2px solid #dd408e;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="flex justify-center items-auto">
+        <br>
+        <h1 class="title-font text-5xl font-bold">Find the Nearest Gynecologist</h1>
+        <br>
+    </div>
+    <br>
+    <input type="text" id="location" placeholder="Enter Location">
+    <button type="button" onclick="findNearestGynecologists()">Find Gynecologists</button>
+
+    <div id="gynecologist-details"></div>
+  </div>
+
+  <script>
+    var placesService;
+
+    var locationAutocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
+
+    function findNearestGynecologists() {
+      var location = document.getElementById('location').value;
+
+      clearGynecologistDetails();
+
+      placesService = new google.maps.places.PlacesService(document.createElement('div'));
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': location }, function(results, status) {
+        if (status === 'OK' && results.length > 0) {
+          var latLng = results[0].geometry.location;
+
+          var request = {
+            location: latLng,
+            radius: 10000,
+            keyword: 'gynecologist'
+          };
+
+          placesService.nearbySearch(request, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK && results.length > 0) {
+              for (var i = 0; i < results.length; i++) {
+                displayGynecologistDetails(results[i], i + 1);
+              }
+            } else {
+              alert('No gynecologists found near the entered location.');
+            }
+          });
+        } else {
+          alert('Location not found.');
+        }
+      });
+    }
+
+    function displayGynecologistDetails(gynecologist, index) {
+      var gynecologistName = gynecologist.name;
+      var gynecologistAddress = gynecologist.vicinity;
+      var rating = gynecologist.rating || "N/A";
+      var isOpen = gynecologist.opening_hours && gynecologist.opening_hours.isOpen ? "Open" : "Closed";
+
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>Gynecologist #${index}</h2>
+        <p><strong>Name:</strong> ${gynecologistName}</p>
+        <p><strong>Address:</strong> ${gynecologistAddress}</p>
+        <p><strong>Rating:</strong> ${rating}</p>
+        <p><strong>Is Open:</strong> ${isOpen}</p>
+      `;
+
+      document.getElementById('gynecologist-details').appendChild(card);
+    }
+
+    function clearGynecologistDetails() {
+      document.getElementById('gynecologist-details').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
