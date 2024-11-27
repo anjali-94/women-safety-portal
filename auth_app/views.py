@@ -58,9 +58,6 @@ def login_view(request):
 def dashboard_view(request):
     return render(request, 'dashboard.html')
 
-def memorialwall_view(request):
-     return render(request, 'memorialwall.html')
-
 def submit_complaint(request):
     if request.method == "POST":
         form = ComplaintForm(request.POST)
@@ -89,6 +86,25 @@ def submit_story(request):
         if content:
             Story.objects.create(content=content)
     return redirect('story')
+
+
+def self_defense(request):
+    return render(request, 'self_defense.html')
+
+def mensus(request):
+    return render(request, 'mensus.html')
+
+def gynec(request):
+    return render(request, 'gynec.html')
+
+def laws(request):
+    return render(request, 'laws.html')
+
+def memorialwall_view(request):
+     return render(request, 'memorialwall.html')
+
+def Ngo(request):
+    return render(request, 'Ngo.html')
 
 
 class CustomLoginView(LoginView):

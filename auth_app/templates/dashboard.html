@@ -20,12 +20,13 @@
             color: #fff;
             padding: 20px;
             text-align: center;
-            position: fixed; /* Fixes the header at the top */
-            top: 0; /* Ensures the header stays at the top of the viewport */
-            width: 100%; /* Makes the header span the full width of the page */
-            z-index: 100; /* Ensures the header stays above other elements */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for better visibility */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5rem;
@@ -47,13 +48,13 @@
         }
 
         .static-section {
-            background-image: url('women.jpg'); /* Replace with the path to your image */
-            background-size: cover; /* Ensures the image covers the entire section */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents the image from repeating */
-            color: #fff; /* Adjust text color for better readability */
-            padding: 50px 20px; /* Adds space inside the section */
-            text-align: center; /* Centers the text */
+            background-image: url('static/women.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
         }
 
         .static-section h2 {
@@ -80,12 +81,11 @@
             font-size: 1.1rem;
         }
 
-        /* Grid Layout for Sections */
         .section-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            padding: 40px 40px;
+            padding: 40px;
         }
 
         .section {
@@ -112,7 +112,6 @@
             color: #666;
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -135,7 +134,7 @@
             width: 80%;
             max-width: 800px;
             max-height: 90vh;
-            overflow-y: scroll ;
+            overflow-y: scroll;
         }
 
         .modal-header {
@@ -168,27 +167,25 @@
             margin: 0;
         }
 
-        a{
+        a {
             text-decoration: none;
         }
 
-        /* Responsive Layout for Smaller Screens */
         @media (max-width: 1024px) {
             .section-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 600px) {
             .section-container {
-                grid-template-columns: 1fr; /* 1 column on small screens */
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <h1>Naari - The Women Essentials Website</h1>
         <nav>
@@ -196,123 +193,86 @@
             <a href="#">Help and Support</a>
             <a href="#">Helpline Numbers</a>
             <a href="#">Change Password</a>
-            <a href="{% url 'logout' %}" >Logout</a> <!--Redirects to Home Page -->
+            <a href="{% url 'logout' %}">Logout</a> 
         </nav>
     </header>
 
-    <!-- Static Section -->
     <section class="static-section">
         <h2>Welcome to Naari</h2>
-        <h3>Your go-to website for all things women essentials. </h3>
-        <p>Naari is an empowering platform dedicated to women's safety, health, and well-being. 
-            Seamlessly combining innovation and accessibility, Naari offers features like self-defense techniques, menstrual health insights, and a gynecologist finder for personalized care. 
-            Navigate through tools to know your legal rights, find nearby NGOs, file complaints effortlessly, or book a safe cab with ease. 
-            With interactive elements like a memorial wall to honor changemakers, Naari not only provides essential resources but also fosters a sense of community and empowerment. 
-            Explore, learn, and act—all in one intuitive space designed to make a difference.</p>
+        <h3>Your go-to website for all things women essentials.</h3>
+        <p>Naari is an empowering platform dedicated to women's safety, health, and well-being. Seamlessly combining innovation and accessibility, Naari offers features like self-defense techniques, menstrual health insights, and a gynecologist finder for personalized care...</p>
     </section>
 
-    <!-- Section Container with Grid Layout -->
     <div class="section-container">
-        <!-- Section 2 (External Link) -->
-        <div class="section" onclick="openModal('Self Defense Techniques and Tools', 'Self-defense.html')">
+        <div class="section" onclick="openModal('Self Defense Techniques and Tools', '/self_defense/')">
             <h4>Self Defense Techniques and Tools</h4>
-            <p>Learn essential self-defense techniques and discover tools designed to enhance your safety in any situation.</p>
+            <p>Learn essential self-defense techniques and discover tools designed to enhance your safety.</p>
         </div>
     
-        <!-- Section 3 (External Link) -->
-        <div class="section" onclick="openModal('All about Mensus', 'Mensus.html')">
+        <div class="section" onclick="openModal('All about Mensus', '/mensus/')">
             <h4>All about Mensus</h4>
-            <p>Understand menstrual health, hygiene tips, and access information to empower yourself through every phase.</p>
+            <p>Understand menstrual health, hygiene tips, and more.</p>
         </div>
-    
-        <div class="section" onclick="openModal('Gynecologist Finder', 'Gynec.html')">
+
+        <div class="section" onclick="openModal('Gynecologist Finder', '/gynec/')">
             <h4>Gynecologist Finder</h4>
-            <p>Find trusted gynecologists near you and get expert advice for your health and well-being.</p>
+            <p>Find trusted gynecologists near you for personalized care.</p>
         </div>
-    
-        <!-- Section 4 (External Link) -->
-        <div class="section" onclick="openModal('Know your Laws and Rights', 'laws.html')">
+
+        <div class="section" onclick="openModal('Know your Laws and Rights', '/laws/')">
             <h4>Know your Laws and Rights</h4>
-            <p>Learn about the laws and rights designed to protect and empower women in various aspects of life.</p>
+            <p>Learn about laws and rights designed to protect women.</p>
         </div>
-    
-        <div class="section" onclick="openModal('Find an NGO around', 'Ngo.html')">
+
+        <div class="section" onclick="openModal('Find an NGO around', '/Ngo/')">
             <h4>NGOs Around</h4>
-            <p>Connect with NGOs in your area and explore how they work towards supporting and uplifting women.</p>
+            <p>Connect with NGOs in your area working towards women's empowerment.</p>
         </div>
-    
-        <div class="section" onclick="openModal('Memorial Wall', 'Memorial.html')">
+
+        <div class="section" onclick="openModal('Memorial Wall', '/memorialwall/')">
             <h4>Memorial Wall</h4>
-            <p>Honor and remember those who made a difference in the journey towards women's empowerment and safety.</p>
+            <p>Honor those who made a difference in women's safety.</p>
         </div>
-    
+
         <div class="section" onclick="openModal('Send Location', '')">
             <h4>Send Location</h4>
-            <p>Quickly and safely book a cab near you to ensure a secure journey anytime, anywhere.</p>
+            <p>Quickly book a cab to ensure a safe journey.</p>
         </div>
-    
-        <div class="section" onclick="openModal('File a Complaint', '')">
+
+        <div class="section" onclick="openModal('File a Complaint', '/complaint/')">
             <h4>File a Complaint</h4>
-            <p>Report any incident or concern easily through our streamlined complaint filing system.</p>
+            <p>Report any incident easily through our complaint system.</p>
         </div>
     </div>
 
-    
-    
-
     <section class="static-section1">
         <h2>Stories</h2>
-        <a href="{% url 'story' %}"><p>Click Here Post your Story Anonymously!</p></a>
+        <a href="{% url 'story' %}"><p>Post your Story Anonymously</p></a>
     </section>
 
-    <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle" class="modal-header"></h2>
-            <!-- <iframe> will load external content -->
             <iframe id="modalIframe" style="width: 100%; height: 100vh; border: none;"></iframe>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Naari Website | All Rights Reserved</p>
     </footer>
 
     <script>
         function openModal(title, url) {
-            // Set the title for the modal
-            document.getElementById('modalTitle').innerText = title;
-            
-            // Load the external URL into the iframe
-            var iframe = document.getElementById('modalIframe');
-            iframe.src = url;
-            
-            // Display the modal
-            document.getElementById('myModal').style.display = 'block';
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalIframe").src = url;
+            document.getElementById("myModal").style.display = "block";
         }
 
         function closeModal() {
-            // Hide the modal and clear the iframe src to stop the page from loading
-            document.getElementById('myModal').style.display = 'none';
-            document.getElementById('modalIframe').src = '';
-        }
-
-        // Close the modal if the user clicks anywhere outside the modal content
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) {
-                closeModal();
-            }
+            document.getElementById("myModal").style.display = "none";
         }
     </script>
 
 </body>
 </html>
-
-    
-
-    
-        
-    
-

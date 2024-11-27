@@ -19,5 +19,10 @@ urlpatterns=[
     path('login/', CustomLoginView.as_view(), name='login'),
     path('memorialwall/', views.memorialwall_view, name='memorialwall'),
     path('complaint/', views.submit_complaint, name='complaint'),
+    path('self_defense/', views.self_defense, name='self_defense'),
+    path('mensus/', views.mensus, name='mensus'),
+    path('gynec/', views.gynec, name='gynec'),
+    path('laws/', views.laws, name='laws'),
+    path('Ngo/', views.Ngo, name='Ngo'),
    
 ]
