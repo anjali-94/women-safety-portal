@@ -11,6 +11,7 @@ from datetime import datetime
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from .forms import ComplaintForm
+from .forms import FeedbackForm
 
 # Create your views here.
 def home_view(request):
@@ -114,6 +115,21 @@ def Ngo(request):
 def location(request):
     return render(request, 'location.html')
 
+def feedback(request):
+    return render(request, 'feedback.html')
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your complaint has been submitted successfully.")
+            return redirect('feedback') 
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback.html', {'form': form})
+
+    
 
 class CustomLoginView(LoginView):
     form_class = CustomLoginForm

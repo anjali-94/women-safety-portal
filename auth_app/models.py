@@ -45,3 +45,18 @@ class Complaint(models.Model):
     def __str__(self):
         return f"{self.name} - {self.incident_type} on {self.incident_date}"
 
+
+
+class Feedback(models.Model):
+    email = models.EmailField(max_length=255)
+    feedback = models.TextField(help_text="Provide your feedback")
+    rating = models.CharField(
+        max_length=10,
+        choices=[('average', 'Average'), ('good', 'Good'), ('poor', 'Poor')],
+        default='good'
+    )
+    suggestion = models.TextField(help_text="Any suggestions?", blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback from {self.email} on {self.created_at}"

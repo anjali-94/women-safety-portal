@@ -4,6 +4,7 @@ from .models import UserRegistration
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
 from .models import Complaint
+from .models import Feedback
 
 class CustomLoginForm(AuthenticationForm):
     username = None  # Remove the default username field
@@ -48,4 +49,15 @@ class ComplaintForm(forms.ModelForm):
         widgets = {
             'incident_date': forms.DateInput(attrs={'type': 'date'}),
             'complaint': forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        }
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['email', 'feedback', 'rating', 'suggestion']
+        widgets = {
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your email'}),
+            'feedback': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your feedback'}),
+            'rating': forms.Select(attrs={'class': 'form-select'}),
+            'suggestion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Any suggestions?'}),
         }

@@ -28,5 +28,7 @@ urlpatterns=[
     path('laws/', views.laws, name='laws'),
     path('Ngo/', views.Ngo, name='Ngo'),
     path('location/',views.location,name='location'),
+    path('feedback/view/', views.feedback, name='feedback_view'),
+    path('feedback/', views.feedback_view, name='feedback'),
    
 ]
