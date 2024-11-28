@@ -77,15 +77,17 @@ def logout_view(request):
 from django.shortcuts import render
 
 def story_view(request):
-    stories = Story.objects.all()
-    return render(request, 'story.html', {'stories': stories})
+    return render(request, 'story.html')
 
 def submit_story(request):
     if request.method == 'POST':
         content = request.POST.get('story_content', '')
         if content:
             Story.objects.create(content=content)
-    return redirect('story')
+            messages.success(request, 'Your story has been submitted successfully!')
+            return redirect('story_view')  # Redirect back to the same page
+    messages.error(request, 'Failed to submit your story. Please try again.')
+    return redirect('story_view')
     
 def story_feed(request):
     stories = Story.objects.all()
@@ -108,6 +110,9 @@ def memorialwall_view(request):
 
 def Ngo(request):
     return render(request, 'Ngo.html')
+
+def location(request):
+    return render(request, 'location.html')
 
 
 class CustomLoginView(LoginView):

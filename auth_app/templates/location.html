@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location and Cab Booking</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #ffe6f0; /* Soft pastel pink background */
+      color: #333; /* Neutral text color */
+    }
+    h1, h2 {
+      color: #b30059; /* Dark pink for headings */
+    }
+    button {
+      padding: 12px 24px;
+      margin: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #ff80bf; /* Light pink border */
+      border-radius: 10px;
+      background-color: #ffb3d9; /* Light pink button background */
+      color: white; /* White text */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff66b3; /* Darker pink on hover */
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05); /* Slight zoom effect */
+    }
+    section {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #ffe6f0; /* Same as body background for blending */
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft container shadow */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Location and Cab Services</h1>
+
+  <!-- Button to get current location -->
+  <button id="sendLocation">Send Location</button>
+
+  <!-- Section for cab booking -->
+  <section>
+    <h2>Book a Cab</h2>
+    <button id="bookCab">Book a Cab</button>
+  </section>
+
+  <script>
+    // Function to get current location and redirect to Google Maps
+    document.getElementById('sendLocation').addEventListener('click', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const mapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+            window.open(mapsUrl, '_blank'); // Opens in a new tab
+          },
+          (error) => {
+            alert('Unable to retrieve location. Please check your browser settings.');
+          }
+        );
+      } else {
+        alert('Geolocation is not supported by your browser.');
+      }
+    });
+
+    // Redirect to Ola Cab Services
+    document.getElementById('bookCab').addEventListener('click', () => {
+      const olaUrl = 'https://www.olacabs.com/';
+      window.open(olaUrl, '_blank'); // Opens in a new tab
+    });
+  </script>
+
+</body>
+</html>
